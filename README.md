@@ -34,7 +34,7 @@ D'après Wikipedia un framework informatique est un "ensemble cohérent de compo
 ## 3. Installation
 Il faut avoir PHP installé sur votre machine. Ce qui est normalement le cas vu que vous utilisez xampp ou mamp.
 Il est possible d'installer Laravel de différentes manières via : [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)), [Composer](https://getcomposer.org/Composer-Setup.exe) ou [Laravel Installer](https://laravel.com/docs/8.x/installation#the-laravel-installer).
-Dans un soucis de facilité, nous allons utiliser Composer pour installer Laravel.
+Dans un soucis de facilité, nous allons utiliser Composer pour créer nos projets Laravel.
 ### 3.1 Installation via Composer
 Avant tout il va falloir installer Composer sur votre machine.
 Composer est un installer de bibliothèques PHP. Il est très facile à utiliser et permettra d'ajouter aisément des bibliothèques à vos projets PHP.
