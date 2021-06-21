@@ -1,12 +1,14 @@
 # Eqla - Formation Laravel
 ## Table des matières
+- [Eqla - Formation Laravel](#eqla---formation-laravel)
+  - [Table des matières](#table-des-matières)
   - [1. Introduction à Laravel](#1-introduction-à-laravel)
   - [2. Qu'est-ce qu'un Framework ?](#2-quest-ce-quun-framework-)
   - [3. Installation](#3-installation)
     - [3.1 Installation via Composer](#31-installation-via-composer)
-      - [3.1.1 Windows](#311-windows)
-      - [3.1.2 Mac OS](#312-linux-unix-macos)
-    - [3.2 Installation via l'installer Laravel](#32-installation-via-linstalleur-laravel)
+    - [3.1.1 Windows](#311-windows)
+    - [3.1.2 Linux, Unix et macOS](#312-linux-unix-et-macos)
+    - [3.2 Installation via l'installeur Laravel](#32-installation-via-linstalleur-laravel)
 
 ## 1. Introduction à Laravel 
 Laravel est un Framework web Open-Source écrit en PHP. Il est basé sur le modèle-vue-contrôleur ([MVC](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)) et est développé en [POO](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet).
@@ -62,7 +64,7 @@ Si vous programmez vous-même sous Windows ou si vous utilisez un autre système
 
 Git peut gérer ce cas en convertissant automatiquement les fins de ligne CRLF en LF lorsque vous validez, et inversement lorsqu’il extrait des fichiers sur votre système. Vous pouvez activer cette fonctionnalité au moyen du paramètre core.autocrlf. Si vous avez une machine Windows, positionnez-le à true. Git convertira les fins de ligne de LF en CRLF lorsque vous extrairez votre code
 
-### 3.1.2 Linux / Unix / macOS 
+### 3.1.2 Linux, Unix et macOS 
 Pour les distributions Linux basées sur Debian, tapez la commande suivante pour installer certaines dépendances nécessaires:
 ```bash
 sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php-xml php-zip
