@@ -29,6 +29,7 @@ Les principales fonctionnalités de Laravel sont:
 - Les tests unitaires.
 
 ## 2. Qu'est-ce qu'un Framework ?
+D'après Wikipedia un framework informatique est un "ensemble cohérent de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel". Autrement dit une base cohérente avec des briques toutes prêtes à disposition. Il existe des frameworks pour tous les langages de programmation et en particulier pour PHP.
 
 ## 3. Installation
 Il faut avoir PHP installé sur votre machine. Ce qui est normalement le cas vu que vous utilisez xampp ou mamp.
