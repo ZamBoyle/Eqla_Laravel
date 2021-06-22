@@ -9,7 +9,7 @@
 # Installation
 ## 1. Installation de PHP
 Sachant que les stagiaires utilisant Macos et Linux sont déjà dans la bonne version minimum, je vais procéder à l'installation de PHP pour Windows.
-- Sur ce dépot, veuillez télécharger le fichier [php.zip]([blob/master/Installation/php.zip](https://github.com/ZamBoyle/Eqla_Laravel/raw/master/Installation/php.zip)).
+- Sur ce dépot, veuillez télécharger le fichier [php.zip](https://github.com/ZamBoyle/Eqla_Laravel/raw/master/Installation/php.zip).
 - Décompressez cette archive à la racine de votre c:\
 - Vous devriez donc avec un c:\php qui contient tous les fichiers nécessaires pour PHP.
 
