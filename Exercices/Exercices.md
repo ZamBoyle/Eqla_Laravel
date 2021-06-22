@@ -11,4 +11,4 @@ Allez dans le répertoire LaravelEx2 et exécutez ce projet.
 ### 4. 
 
 --- 
-[Eqla](http://www.eqla.be) 2021 - Formation Laravel
+_[Eqla](http://www.eqla.be) 2021 - Formation Laravel_

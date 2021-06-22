@@ -6,4 +6,4 @@ Ici sont repris ces différents fichiers.<br/><br/>
 2. [Laravel: Introduction](Theo/../2.%20Laravel.md)
 
 --- 
-[Eqla](http://www.eqla.be) 2021 - Formation Laravel
+_[Eqla](http://www.eqla.be) 2021 - Formation Laravel_
