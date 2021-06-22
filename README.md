@@ -9,13 +9,13 @@
 # Installation
 ## 1. Installation de PHP
 Sachant que les stagiaires utilisant Macos et Linux sont déjà dans la bonne version minimum, je vais procéder à l'installation de PHP pour Windows.
-- Sur ce dépot, veuillez télécharger le fichier [php.zip](Installation/php.zip).
+- Sur ce dépot, veuillez télécharger le fichier [php.zip](blob/master/Installation/php.zip).
 - Décompressez cette archive à la racine de votre c:\
 - Vous devriez donc avec un c:\php qui contient tous les fichiers nécessaires pour PHP.
 
 ## 2. Installation de Laravel
 Pour installer Laravel, il faut avoir PHP installé sur votre machine. Ce qui est normalement le cas vu que vous utilisez xampp ou mamp.
-Il est possible d'installer Laravel de différentes manières via : [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)), [Composer](Installation/Composer-Setup.exe) ou [Laravel Installer](https://laravel.com/docs/8.x/installation#the-laravel-installer).
+Il est possible d'installer Laravel de différentes manières via : [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)), [Composer](blob/master/Installation/Composer-Setup.exe) ou [Laravel Installer](https://laravel.com/docs/8.x/installation#the-laravel-installer).
 Dans un soucis de facilité, nous allons utiliser Composer pour créer nos projets Laravel.
 ### 2.1. Installation via Composer
 Avant tout il va falloir installer Composer sur votre machine.
