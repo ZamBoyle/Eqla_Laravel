@@ -1,14 +1,14 @@
-# Exercices
-## 1. Créer un projet Laravel avec Composer
+# Exercices Laravel
+## Exercice n°1
 Créez un projet Laravel avec Composer ayant pour nom LaravelEx1.
 
-## 2. Créer un projet Laravel avec Laravel
+## Exercice n°2
 Créez un projet Laravel avec l'installeur Laravel ayant pour nom LaravelEx2.
 
-## 3. Exécuter l'application Laravel
+## Exercice n°3
 Allez dans le répertoire LaravelEx2 et exécutez ce projet.
 
-### 4. 
+## Exercice n°4
 
 --- 
 _[Eqla](http://www.eqla.be) 2021 - Formation Laravel_
