@@ -75,5 +75,5 @@ Ensuite, on va installer l'installeur Laravel globalement via composer:
 composer global require laravel/installer
 ```
 ---
-Eqla 2021 - Formation Laravel
+[Eqla](http://www.eqla.be) 2021 - Formation Laravel
 
