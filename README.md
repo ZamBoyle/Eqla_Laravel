@@ -1,47 +1,29 @@
-# Eqla - Formation Laravel
-## Table des matières
-- [Eqla - Formation Laravel](#eqla---formation-laravel)
-  - [Table des matières](#table-des-matières)
-  - [1. Introduction à Laravel](#1-introduction-à-laravel)
-  - [2. Qu'est-ce qu'un Framework ?](#2-quest-ce-quun-framework-)
-  - [3. Installation](#3-installation)
-    - [3.1 Installation via Composer](#31-installation-via-composer)
-    - [3.1.1 Windows](#311-windows)
-    - [3.1.2 Linux, Unix et macOS](#312-linux-unix-et-macos)
-    - [3.2 Installation via l'installeur Laravel](#32-installation-via-linstalleur-laravel)
+- [Installation](#installation)
+  - [1. Installation de PHP](#1-installation-de-php)
+  - [2. Installation de Laravel](#2-installation-de-laravel)
+    - [2.1. Installation via Composer](#21-installation-via-composer)
+      - [2.1.1 Windows](#211-windows)
+      - [2.1.2 Linux, Unix et macOS](#212-linux-unix-et-macos)
+    - [2. Installation via l'installeur Laravel](#2-installation-via-linstalleur-laravel)
 
-## 1. Introduction à Laravel 
-Laravel est un Framework web Open-Source écrit en PHP. Il est basé sur le modèle-vue-contrôleur ([MVC](https://fr.wikipedia.org/wiki/Mod%C3%A8le-vue-contr%C3%B4leur)) et est développé en [POO](https://fr.wikipedia.org/wiki/Programmation_orient%C3%A9e_objet).
+# Installation
+## 1. Installation de PHP
+Sachant que les stagiaires utilisant Macos et Linux sont déjà dans la bonne version minimum, je vais procéder à l'installation de PHP pour Windows.
+- Sur ce dépot, veuillez télécharger le fichier [php.zip](Installation/php.zip).
+- Décompressez cette archive à la racine de votre c:\
+- Vous devriez donc avec un c:\php qui contient tous les fichiers nécessaires pour PHP.
 
-C'est Taylor Otwell qui l'a écrit en juin 2011: Laravel a fêté ses 10 ans.
-
-30% de son code est basé sur [Symfony](http://www.google.be): Symfony component.
-
-Il connait une grande popularité. Une grande communauté d'utilisateurs du Framework s'est formée. En 2016, c'était le projet PHP le mieux noté sur GitHub.
-
-Les principales fonctionnalités de Laravel sont:
-- Le routage de requête.
-- Le mapping objet-relationnel (un système baptisé Eloquent implémentant Active Record).
-- L'authentification.
-- Les vues (avec Blade).
-- La migration de base de données.
-- La gestion des exceptions.
-- Les tests unitaires.
-
-## 2. Qu'est-ce qu'un Framework ?
-D'après Wikipedia un framework informatique est un "ensemble cohérent de composants logiciels structurels, qui sert à créer les fondations ainsi que les grandes lignes de tout ou d’une partie d'un logiciel". Autrement dit une base cohérente avec des briques toutes prêtes à disposition. Il existe des frameworks pour tous les langages de programmation et en particulier pour PHP.
-
-## 3. Installation
-Il faut avoir PHP installé sur votre machine. Ce qui est normalement le cas vu que vous utilisez xampp ou mamp.
-Il est possible d'installer Laravel de différentes manières via : [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)), [Composer](https://getcomposer.org/Composer-Setup.exe) ou [Laravel Installer](https://laravel.com/docs/8.x/installation#the-laravel-installer).
+## 2. Installation de Laravel
+Pour installer Laravel, il faut avoir PHP installé sur votre machine. Ce qui est normalement le cas vu que vous utilisez xampp ou mamp.
+Il est possible d'installer Laravel de différentes manières via : [Docker](https://fr.wikipedia.org/wiki/Docker_(logiciel)), [Composer](Installation/Composer-Setup.exe) ou [Laravel Installer](https://laravel.com/docs/8.x/installation#the-laravel-installer).
 Dans un soucis de facilité, nous allons utiliser Composer pour créer nos projets Laravel.
-### 3.1 Installation via Composer
+### 2.1. Installation via Composer
 Avant tout il va falloir installer Composer sur votre machine.
 Composer est un installer de bibliothèques PHP. Il est très facile à utiliser et permettra d'ajouter aisément des bibliothèques à vos projets PHP.
 
-### 3.1.1 Windows
+#### 2.1.1 Windows
 Il faudra en premier installer Composer via un setup.
-1. Allez à l'url suivante: [https://getcomposer.org/Composer-Setup.exe](https://getcomposer.org/Composer-Setup.exe).
+1. Dans ce dépot, allez à l'url suivante: [Installation/Composer-Setup.exe](Installation/Composer-Setup.exe).
 2. Attendez la fin du téléchargement.
 3. Exécutez le programme téléchargé: Composer-Setup.exe
 4. Cliquez sur "Install for all users (recommanded)"
@@ -65,7 +47,7 @@ Si vous programmez vous-même sous Windows ou si vous utilisez un autre système
 
 Git peut gérer ce cas en convertissant automatiquement les fins de ligne CRLF en LF lorsque vous validez, et inversement lorsqu’il extrait des fichiers sur votre système. Vous pouvez activer cette fonctionnalité au moyen du paramètre core.autocrlf. Si vous avez une machine Windows, positionnez-le à true. Git convertira les fins de ligne de LF en CRLF lorsque vous extrairez votre code
 
-### 3.1.2 Linux, Unix et macOS 
+#### 2.1.2 Linux, Unix et macOS 
 Pour les distributions Linux basées sur Debian, tapez la commande suivante pour installer certaines dépendances nécessaires:
 ```bash
 sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php-xml php-zip
@@ -86,11 +68,12 @@ Ces commandes feront les actions suivantes:
 - Supprime l'installeur.
 - Installe globalement composer: déplacement du fichier composer.phar dans le répertoire /usr/local/bin/
 
-### 3.2 Installation via l'installeur Laravel
+### 2. Installation via l'installeur Laravel
 Ici, il faut avoir au préalable installé Composer.
 Ensuite, on va installer l'installeur Laravel globalement via composer:
 ```bash
 composer global require laravel/installer
 ```
-
+---
+Eqla 2021 - Formation Laravel
 
