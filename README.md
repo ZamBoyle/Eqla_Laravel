@@ -23,7 +23,7 @@ Composer est un installer de bibliothèques PHP. Il est très facile à utiliser
 
 #### 2.1.1 Windows
 Il faudra en premier installer Composer via un setup.
-1. Dans ce dépot, allez à l'url suivante: [Installation/Composer-Setup.exe]([Installation/Composer-Setup.exe](https://github.com/ZamBoyle/Eqla_Laravel/raw/master/Installation/Composer-Setup.exe)).
+1. Dans ce dépot, allez à l'url suivante: [Installation/Composer-Setup.exe](https://github.com/ZamBoyle/Eqla_Laravel/raw/master/Installation/Composer-Setup.exe).
 2. Attendez la fin du téléchargement.
 3. Exécutez le programme téléchargé: Composer-Setup.exe
 4. Cliquez sur "Install for all users (recommanded)"
