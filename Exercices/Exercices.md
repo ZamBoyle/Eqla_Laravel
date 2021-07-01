@@ -10,7 +10,14 @@ Créez un projet Laravel avec l'installeur Laravel ayant pour nom LaravelEx2.
 Allez dans le répertoire LaravelEx2 et exécutez cette application Laravel.
 
 ## Exercice n°4
-Minute papillon ! :)
+Affichez le message "Bienvue toto" quand un utilisateur essaie d'accéder "/toto" 
+
+## Exercice n°5
+Créez une vue qui s'appellera 'Games'. Celle-ci sera appelée quand un utilisateur essaie d'accéder à "/jeux";
+La page affichera en titre 1: Bienvenue sur la page des jeux vidéos.
+
+## Exercice n°6
+
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
