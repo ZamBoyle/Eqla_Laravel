@@ -12,11 +12,20 @@ Allez dans le répertoire LaravelEx2 et exécutez cette application Laravel.
 ## Exercice n°4
 Affichez la string "Bienvue toto" quand un utilisateur essaie d'accéder "/toto" 
 
-## Exercice n°5
+## Exercice n°5 - Routage sur une vue
 Créez une vue qui s'appellera 'Games'. Celle-ci sera appelée quand un utilisateur essaie d'accéder à "/jeux";
 La page affichera en titre 1: Bienvenue sur la page des jeux vidéos.
 
-## Exercice n°6
+## Exercice n°6 - Routage avec un paramètre
+Pour la route '/Hello', adaptez celle-ci pour qu'elle retourne une chaîne quand on envoie un paramètre.
+La chaîne affichera par exemple: Hello Johnny !
+
+## Exercice n°7 - Routage avec deux paramètres
+Pour la route '/Hello', adaptez celle-ci pour qu'elle retourne une chaîne quand on envoie deux paramètre.
+La chaîne affichera par exemple: Ton prénom est 'Johnny' et ton nom est 'Piette'.
+
+## Exercice n°8 - Routage avec contrainte
+Pour la route '/User', adaptez celle-ci pour qu'elle retourne une chaîne quand on envoie uniquement de l'alphanume
 
 
 [:arrow_left:Revenir au menu général.](../README.md)
