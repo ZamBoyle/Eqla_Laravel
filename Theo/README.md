@@ -9,6 +9,7 @@ L'ensemble des points de matière se trouvent dans les documents suivants:<br/><
 5. [Introduction à Laravel](5.%20Introduction%20à%20Laravel.md)
 6. [Astuces](6.%20Astuces.md)
 7. [Routage](7.%20Routage.md)
+8. [Les vues](8.%20Les%20vues.md)
 
 [:arrow_left:Revenir au menu général.](../README.md)
 

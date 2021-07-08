@@ -25,7 +25,13 @@ Pour la route '/Hello', adaptez celle-ci pour qu'elle retourne une chaîne quand
 La chaîne affichera par exemple: Ton prénom est 'Johnny' et ton nom est 'Piette'.
 
 ## Exercice n°8 - Routage avec contrainte
-Pour la route '/User', adaptez celle-ci pour qu'elle retourne une chaîne quand on envoie uniquement de l'alphanume
+Pour la route '/User', adaptez celle-ci pour qu'elle retourne une vue quand on envoie uniquement des lettres.
+La vue affichera: Bienvenue cher Utilisateur !
+
+## Exercice n°9 - Affichage des routes
+A l'aide de la commande php afficher l'ensemble de vos routes.
+
+
 
 
 [:arrow_left:Revenir au menu général.](../README.md)
