@@ -11,6 +11,8 @@ L'ensemble des points de matière se trouvent dans les documents suivants:<br/><
 7. [Routage](7.%20Routage.md)
 8. [Les vues](8.%20Les%20vues.md)
 9. [Blade](9.%20Blade.md)
+10. [Les réponses](10.%20Reponses.md)
+11. [Les contrôleurs](11.%20Les%20contrôleurs.md)
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
