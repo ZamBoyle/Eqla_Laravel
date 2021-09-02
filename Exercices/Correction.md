@@ -120,8 +120,8 @@ La vue affichera: Bienvenue Johnny !
 ### Solution
 ```php
 Route::get('/Hello/{firstname}/', function($firstname){
-  return "Hello $firstname !"->whereAlphaNumeric('firstname');
-});
+  return "Hello $firstname !";
+})->whereAlpha('firstname');
 ```
 
 ## Exercice n°6 - Affichage des routes
