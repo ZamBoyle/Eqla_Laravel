@@ -26,7 +26,6 @@
   - [Exercice n°5](#exercice-n5)
   - [Exercice n°6](#exercice-n6)
   - [Exercice n°7](#exercice-n7)
-  - [Exercice](#exercice)
 
 
 # I. Création d'un projet
@@ -154,9 +153,6 @@ La page appelante s'appelera Exercice6Page.blade.php
 ## Exercice n°7
 Faites la même chose mais en utilisant un modèle avec composant qui s'appelera Exercice7Component.blade.php
 La page appelante s'appelera Exercice7Page.blade.php
-
-## Exercice
-
 
 
 
