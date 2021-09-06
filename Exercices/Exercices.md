@@ -24,6 +24,9 @@
   - [Exercice n°3](#exercice-n3)
   - [Exercice n°4](#exercice-n4)
   - [Exercice n°5](#exercice-n5)
+  - [Exercice n°6](#exercice-n6)
+  - [Exercice n°7](#exercice-n7)
+  - [Exercice](#exercice)
 
 
 # I. Création d'un projet
@@ -138,6 +141,24 @@ Dans la vue, c'est à dire dans le fichier bladeExercice4.blade.php:
 
 ## Exercice n°5
 Créez une vue nommée _bladeExercice5.blade.php_ qui fera la même chose que l'exercice précédent sauf que vous prendrez en compte le fait qu'un tableau peut être vide. Vous utiliserez _forelse_ pour cela. Si le tableau est vide, vous afficherez le message suivant: "Personne n'est là. Je me sens bien seul"
+
+## Exercice n°6
+Créez un modèle qui comprendra tout le code d'une page html: html, head, body, etc.
+Vous appelerez ce modèle Exercice6Modele.blade.php
+Ce modèle permettra de remplacer depuis la page appelante:
+- le titre de la page dans la balise head.
+- le titre1.
+- le contenu.
+La page appelante s'appelera Exercice6Page.blade.php
+
+## Exercice n°7
+Faites la même chose mais en utilisant un modèle avec composant qui s'appelera Exercice7Component.blade.php
+La page appelante s'appelera Exercice7Page.blade.php
+
+## Exercice
+
+
+
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
