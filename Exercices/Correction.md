@@ -248,7 +248,7 @@ Route::get('/people', function(){
 });
 ```
 
-###Solution: bladeExercice4.blade.php
+### Solution: bladeExercice4.blade.php
 
 ```php
 <h1>Liste de personnes</h1>
