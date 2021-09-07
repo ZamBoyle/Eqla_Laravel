@@ -27,8 +27,17 @@
     - [Solution 1](#solution-1-1)
     - [Solution 2](#solution-2-1)
 - [III. Les vues](#iii-les-vues)
-  - [Exercice n°1 -](#exercice-n1--)
+  - [Exercice n°1 - Simple](#exercice-n1---simple)
+    - [Solution: fichier Hello.blade.php](#solution-fichier-hellobladephp)
+  - [Exercice n°2 - Avec un paramètre](#exercice-n2---avec-un-paramètre)
+    - [Solution: fichier web.php](#solution-fichier-webphp)
+    - [Solution: fichier Hello.blade.php](#solution-fichier-hellobladephp-1)
+  - [Exercice n°3 - Avec plusieurs paramètres](#exercice-n3---avec-plusieurs-paramètres)
+    - [Solution: web.php](#solution-webphp)
+    - [Solution: fichier Hello.blade.php](#solution-fichier-hellobladephp-2)
 - [IV. Blade](#iv-blade)
+  - [Exercice n°1](#exercice-n1)
+    - [Solution: fichier bladeExercice1.blade.php](#solution-fichier-bladeexercice1bladephp)
 - [V. Les réponses](#v-les-réponses)
 - [VI. Les contrôleurs](#vi-les-contrôleurs)
 
@@ -147,10 +156,50 @@ Route::get('/Hello/{firstname}/{name}', function($firstname, $name){
 ```
 
 # III. Les vues
-## Exercice n°1 - 
+## Exercice n°1 - Simple
+Créez une vue qui affiche en titre1 Welcome !
+### Solution: fichier Hello.blade.php
+```php
+<h1> Welcome ! </h1>
+```
 
+## Exercice n°2 - Avec un paramètre
+Créez la vue l'exercice n°3 du point II (Routage).
+
+### Solution: fichier web.php
+```php
+Route::get('/Hello/{user}',function($user){
+  return view('Hello')->with('user',$user);
+});
+```
+### Solution: fichier Hello.blade.php
+```php
+<h1> Welcome {{ $user }} ! </h1>
+```
+
+## Exercice n°3 - Avec plusieurs paramètres
+Créez la vue l'exercice n°4 du point II (Routage).
+
+### Solution: web.php
+```php
+Route::get('/Hello/{firstname}/{name}', function($firstname, $name){
+  return view('hello',['firstname' => $firstname, 'name' =>$name]);
+});
+```
+### Solution: fichier Hello.blade.php
+```php
+Ton prénom est '{{ $firstname }}' et ton nom est '{{ $name }}'.
+```
 
 # IV. Blade
+
+## Exercice n°1
+Créez une vue nommée bladeExercice1.blade.php dans laquelle vous allez affichez le contenu de la variable $_SERVER['SCRIPT_FILENAME']. 
+
+### Solution: fichier bladeExercice1.blade.php
+```php
+Le contenu de la variable $_SERVER['SCRIPT_FILENAME'] est {{ $_SERVER['SCRIPT_FILENAME'] }}.
+```
 
 
 # V. Les réponses
