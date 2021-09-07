@@ -247,7 +247,9 @@ Route::get('/people', function(){
   return view('bladeExercice4')->with('people',$people);
 });
 ```
+
 ###Solution: bladeExercice4.blade.php
+
 ```php
 <h1>Liste de personnes</h1>
 @foreach ($people as $person)
