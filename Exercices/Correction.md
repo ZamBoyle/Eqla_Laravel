@@ -145,13 +145,13 @@ Tout comme pour l'exercice 4, passez ces paramètres à une vue via deux manièr
 ### Solution 1
 ```php
 Route::get('/Hello/{firstname}/{name}', function($firstname, $name){
-  return view('hello',['firstanme'=>$firstname, 'name'=>$name]);
+  return view('hello',['firstname'=>$firstname, 'name'=>$name]);
 });
 ```
 ### Solution 2
 ```php
 Route::get('/Hello/{firstname}/{name}', function($firstname, $name){
-  return view('hello')->with('firstanme',$firstname)->with('name',$name);
+  return view('hello')->with('firstname',$firstname)->with('name',$name);
 });
 ```
 
@@ -226,7 +226,7 @@ Vous utiliserez le paramètre \$age de la manière suivante:
 ```php
 @if ($age >= 65)
 Bienvenue cher Senior.
-@else if ($age >= 18 && $age <=64)
+@elseif ($age >= 18 && $age <=64)
 Bienvenue sur ce site.
 @else
 Désolé, il faut être majeur pour entrer sur ce site.
@@ -259,7 +259,23 @@ Route::get('/people', function(){
     <hr/>
 @endforeach
 ```
-On aurait pu utiliser @forelse pour gérer le cas d'un tableau de personnes vide.
+On aurait pu utiliser @forelse pour gérer le cas d'un tableau de personnes vide. Ca sera l'objectif de l'exercice suivant.
+
+## Exercice n°5
+Créez une vue nommée _bladeExercice5.blade.php_ qui fera la même chose que l'exercice précédent sauf que vous prendrez en compte le fait qu'un tableau peut être vide. Vous utiliserez _forelse_ pour cela. Si le tableau est vide, vous afficherez le message suivant: "Personne n'est là. Je me sens bien seul"
+
+### Solution: bladeExercice5.blade.php
+```php
+<h1>Liste de personnes</h1>
+@forelse ($people as $person)
+    - Prénom: {{ $person->Firstname }} <br/>
+    - Nom: {{ $person->Name }} <br/>
+    - Age: {{ $person->Age }} <br/>
+    <hr/>
+@empty
+Personne n'est là. Je me sens bien seul.
+@endforelse
+```
 
 # V. Les réponses
 
