@@ -145,13 +145,13 @@ Tout comme pour l'exercice 4, passez ces paramètres à une vue via deux manièr
 ### Solution 1
 ```php
 Route::get('/Hello/{firstname}/{name}', function($firstname, $name){
-  return view('hello',['firstanme'=>$firstname, 'name'=>$name]);
+  return view('hello',['firstname'=>$firstname, 'name'=>$name]);
 });
 ```
 ### Solution 2
 ```php
 Route::get('/Hello/{firstname}/{name}', function($firstname, $name){
-  return view('hello')->with('firstanme',$firstname)->with('name',$name);
+  return view('hello')->with('firstname',$firstname)->with('name',$name);
 });
 ```
 
@@ -201,6 +201,81 @@ Créez une vue nommée bladeExercice1.blade.php dans laquelle vous allez affiche
 Le contenu de la variable $_SERVER['SCRIPT_FILENAME'] est {{ $_SERVER['SCRIPT_FILENAME'] }}.
 ```
 
+## Exercice n°2
+Créez une vue nommée bladeExercice2.blade.php qui recevra le paramètre \$firstname.
+Vous afficherez le paramètre \$firstname de la manière suivante
+- Si \$firstname est égal à votre nom alors affichez 'Bonjour Maître !'
+- Sinon affichez par exemple 'Bonjour Bruno !' (Bruno étant le contenu de la variable \$firstname)
+
+### Solution: bladeExercice2.blade.php
+```php
+@if ($firstname == 'Johnny')
+Bonjour Maître !
+@else
+Bonjour {{ $firstname }} !
+@endif
+```
+## Exercice n°3
+Créez une vue nommée bladeExercice3.blade.php qui recevra le paramètre \$age.
+Vous utiliserez le paramètre \$age de la manière suivante:
+- Si \$age est supérieur ou égal à 65, vous afficherez 'Bienvenue cher Senior.'
+- Sinon si \$age est compris entre 18 et 64, vous afficherez 'Bienvenue sur le site.'
+- Sinon vous afficherez 'Désolé, il faut être majeur pour entrer sur ce site.'
+
+### Solution: bladeExercice3.blade.php
+```php
+@if ($age >= 65)
+Bienvenue cher Senior.
+@elseif ($age >= 18 && $age <=64)
+Bienvenue sur ce site.
+@else
+Désolé, il faut être majeur pour entrer sur ce site.
+@endif
+```
+
+## Exercice n°4
+Créez une vue nommée bladeExercice4.blade.php qui recevra un tableau d'objets de personnes depuis la route '/people'.
+### Solution: web.php
+```php
+use App\Models\Person;
+Route::get('/people', function(){
+  $people = array(
+  new Person("Johnny","Piette",47),
+  new Person("Philip","Dupont",25),
+  new Person("Bruno","Defalque",77)
+);
+  return view('bladeExercice4')->with('people',$people);
+});
+```
+
+### Solution: bladeExercice4.blade.php
+
+```php
+<h1>Liste de personnes</h1>
+@foreach ($people as $person)
+    - Prénom: {{ $person->Firstname }} <br/>
+    - Nom: {{ $person->Name }} <br/>
+    - Age: {{ $person->Age }} <br/>
+    <hr/>
+@endforeach
+```
+On aurait pu utiliser @forelse pour gérer le cas d'un tableau de personnes vide. Ca sera l'objectif de l'exercice suivant.
+
+## Exercice n°5
+Créez une vue nommée _bladeExercice5.blade.php_ qui fera la même chose que l'exercice précédent sauf que vous prendrez en compte le fait qu'un tableau peut être vide. Vous utiliserez _forelse_ pour cela. Si le tableau est vide, vous afficherez le message suivant: "Personne n'est là. Je me sens bien seul"
+
+### Solution: bladeExercice5.blade.php
+```php
+<h1>Liste de personnes</h1>
+@forelse ($people as $person)
+    - Prénom: {{ $person->Firstname }} <br/>
+    - Nom: {{ $person->Name }} <br/>
+    - Age: {{ $person->Age }} <br/>
+    <hr/>
+@empty
+Personne n'est là. Je me sens bien seul.
+@endforelse
+```
 
 # V. Les réponses
 
