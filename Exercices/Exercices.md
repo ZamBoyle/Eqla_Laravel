@@ -144,15 +144,41 @@ Créez une vue nommée _bladeExercice5.blade.php_ qui fera la même chose que l'
 ## Exercice n°6
 Créez un modèle qui comprendra tout le code d'une page html: html, head, body, etc.
 Vous appelerez ce modèle Exercice6Modele.blade.php
-Ce modèle permettra de remplacer depuis la page appelante:
+Ce modèle permettra de remplacer depuis la vue appelante:
 - le titre de la page dans la balise head.
 - le titre1.
 - le contenu.
-La page appelante s'appelera Exercice6Page.blade.php
+
+La vue s'appelera Exercice6View.blade.php
 
 ## Exercice n°7
-Faites la même chose mais en utilisant un modèle avec composant qui s'appelera Exercice7Component.blade.php
-La page appelante s'appelera Exercice7Page.blade.php
+Modifiez votre modèle pour que celui-ci permette d'ajouter éventuellement un script JS.
+La vue s'appelera Exercice7View.blade.php
+Cette vue aura comme:
+- titre de page: Kaboum.
+- titre1: Cette page est explosive.
+- contenu: Veuillez presser une touche pour lancer le compte à rebours pour effacer cette page.
+- un script JS qui contiendra le code suivant:
+```javascript
+window.addEventListener('load', (event) => {
+    document.addEventListener("keydown", keydown);
+});
+
+function keydown() {
+    var body = document.getElementsByTagName("body")[0];
+    document.removeEventListener("keydown", keydown);
+    var x = 10;
+    var intervalID = setInterval(function() {
+        body.innerHTML += `<strong>Cette page va s'effacer dans ${x}.</strong><br/>`;
+        if (x == 0) {
+            body.innerHTML = "";
+            window.clearInterval(intervalID);
+        }
+        x--;
+    }, 1000);
+}
+```
+
 
 
 
