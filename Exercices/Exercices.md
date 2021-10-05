@@ -179,6 +179,71 @@ function keydown() {
 }
 ```
 
+# V. Les contrôleurs
+## Exercice n°1
+En suivant la théorie sur les contrôleurs, créez le contrôleur PersonController qui y est présenté.
+Ce contrôleur aura donc 5 méthodes:
+- hi
+- getUsersList
+- getUsersByName
+- getUsersByFirstname
+- getUsersBySomething
+- search
+Il y aura 4 routes:
+- users/List
+- users/SearchByName/{name}
+- users/SearchByFirstname/{firstname}
+- users/SearchBySomehting/{thing}
+Et pour finir, une vue nommée Results.blade.php
+
+Il n'y a rien de compliqué, je pense, il suffit de suivre pas à pas la théorie pour faire cet exercice.
+
+## Exercice n°2
+Dans web.php, ajoutez une route 'search' qui appelera la vue search.blade.php
+
+Vous allez créer un formulaire permettant d'entrer deux champs: le nom et le prénom. Ils auront comme name/id (name et firstname).
+
+Dans cette vue search, vous allez mettre comme attributs à la balise
+form:
+- action="{{ url('users') }}"
+- method="POST">
+
+Vous ajouterez dans le formulaire la directive blade: @csrf 
+Comme vous le voyez, on a demandé d'appeler la route 'users' dans Action et on a demandé la méthode 'POST'.
+
+Il faut donc ajouter une route qui va tenir compte de cela:
+```php
+Route::post('users', [PersonController::class, 'searchForm']);
+``` 
+Le 'searchForm' indique que l'on aura dans notre PersonController la méthode searchForm:
+```php
+  public function searchForm(Request $request)
+  {
+      $array = array();
+      $name = $request->input('name');
+      $firstname = $request->input('firstname');
+
+      #On recherche sur le nom ET prénom
+      if (isset($name) && isset($firstname)) {
+          foreach ($this->users as $user) {
+              $userObj = (object)$user;
+              if (strtolower($userObj->name) === strtolower($name) && strtolower($userObj->firstname) === strtolower($firstname)) {
+                  array_push($array, $user);
+              }
+          }
+      } else {
+          #On recherche sur le prénom
+          if (!isset($name) && isset($firstname)) {
+              return $this->getUsersByFirstname($firstname);
+          }
+          #On recherche sur le nom
+          if (isset($name) && !isset($firstname)) {
+              return $this->getUsersByName($name);
+          }
+      }
+      return view('results', ['users' => $array]);        
+  }
+```
 
 
 

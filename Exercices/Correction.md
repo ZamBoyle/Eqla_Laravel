@@ -277,13 +277,6 @@ Personne n'est là. Je me sens bien seul.
 @endforelse
 ```
 
-# V. Les réponses
-
-
-# VI. Les contrôleurs
-
-
-
 [:arrow_left:Revenir au menu général.](../README.md)
 
 --- 
