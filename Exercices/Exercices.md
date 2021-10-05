@@ -192,6 +192,7 @@ Ce contrôleur aura donc 5 méthodes:
 - getUsersByFirstname
 - getUsersBySomething
 - search
+
 Il y aura 4 routes:
 - users/List
 - users/SearchByName/{name}
