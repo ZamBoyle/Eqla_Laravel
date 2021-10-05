@@ -26,6 +26,9 @@
   - [Exercice n°5](#exercice-n5)
   - [Exercice n°6](#exercice-n6)
   - [Exercice n°7](#exercice-n7)
+- [V. Les contrôleurs](#v-les-contrôleurs)
+  - [Exercice n°1](#exercice-n1-1)
+  - [Exercice n°2](#exercice-n2-1)
 
 
 # I. Création d'un projet
