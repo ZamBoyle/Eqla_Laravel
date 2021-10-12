@@ -13,6 +13,7 @@ L'ensemble des points de matière se trouvent dans les documents suivants:<br/><
 9. [Blade](9.%20Blade.md)
 10. [Les réponses](10.%20Reponses.md)
 11. [Les contrôleurs](11.%20Les%20contrôleurs.md)
+12. [Les formulaires](12.%20Les%20formulaires.md)
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
