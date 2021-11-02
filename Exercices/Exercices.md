@@ -32,6 +32,8 @@
 - [VI. Les bases de données](#vi-les-bases-de-données)
   - [Exercice n°1](#exercice-n1-2)
   - [Exercice n°2](#exercice-n2-2)
+  - [Exercice n°3](#exercice-n3-1)
+  - [Exercice n°4](#exercice-n4-1)
 
 
 # I. Création d'un projet
@@ -263,7 +265,22 @@ Pour faire cette partie, n'oubliez pas que vous avez la théorie sur les [bases 
 - Dans la fonction up() de cette migration ajoutez les champs suivants:
   - nom de type string.
   - stock de type integer;
-  - discontinued de type boolean; 
+  - discontinued de type boolean;
+- Créez un modèle nommée Product
+
+## Exercice n°3
+- Créez une route 'products/create' qui va créer les 4 premiers produits de la table produits.
+- Cette route appelera le contrôleur ProductController et sa méthode initialize().
+- Dans cette méthode vous ajouterez 4 produits en DB uniquement s'il n'y a pas de produits.
+- Cette méthode initialize de votre controller appelera la vue 'firstitems.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/firstitems')->with("produits", Product::all());
+- Cette vue indiquera, grâce à Product::all()->count() == 0, soit
+  - que la table products n'a pas été initialisée avec les 4 produits par défault car ils étaient existants.
+  - le nombre de produits qui ont été ajouté à la DB lors de la phase d'initialisation de la table products.
+
+## Exercice n°4
+Créez une route 'products/list' qui appelera le contrôleur ProductController et sa méthode index.
+Ce contrôleur que vous allez créer retournera la liste des produits à la vue nommée list.blade.php qui se trouvera dans le répertoire views/products. 
+Cette vue affichera, tous les attributs d'un produit. Présentez comme vous voulez ces informations.
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
