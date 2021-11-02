@@ -29,6 +29,9 @@
 - [V. Les contrôleurs](#v-les-contrôleurs)
   - [Exercice n°1](#exercice-n1-1)
   - [Exercice n°2](#exercice-n2-1)
+- [VI. Les bases de données](#vi-les-bases-de-données)
+  - [Exercice n°1](#exercice-n1-2)
+  - [Exercice n°2](#exercice-n2-2)
 
 
 # I. Création d'un projet
@@ -248,8 +251,19 @@ Le 'searchForm' indique que l'on aura dans notre PersonController la méthode se
       return view('results', ['users' => $array]);        
   }
 ```
+# VI. Les bases de données
+Pour faire cette partie, n'oubliez pas que vous avez la théorie sur les [bases de données](../Theo/14.%20Les%20base%20de%20données.md) pour vous aider.
+## Exercice n°1
+- Créez un nouveau projet Laravel nommé dbexercices avec l'option --git
+- Modifiez le fichier .env pour la partie base de données comme vu en théorie. Cette partie vous est propre et peut ne pas être la même que votre comparse de cours: login/password.
+- Connectez-vous à Mysql en ligne de commandes et créez la base de données dbexercices.
 
-
+## Exercice n°2
+- Créez une migration nommée create_products_table
+- Dans la fonction up() de cette migration ajoutez les champs suivants:
+  - nom de type string.
+  - stock de type integer;
+  - discontinued de type boolean; 
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
