@@ -284,14 +284,24 @@ Exemples de return de la function index:
 A vous de trouver comment affecter $produits avec tous les produits de la DB. ;) 
 
 ## Exercice n°4
-- Créez une route 'products/initialize' qui va créer les 4 premiers produits de la table produits.
+Ici nous allons créer des produits par défaut si ceux-ci n'existent pas. Ce n'est pas la meilleure méthode, c'est juste pour l'exercice que nous le feront de cette manière.
+
+- Créez une route 'products/initialize'.
 - Cette route appelera le contrôleur ProductController et sa méthode initialize().
-- Dans cette méthode vous ajouterez 4 produits en DB uniquement s'il n'y a pas de produits dans la table produits.
-- Cette méthode initialize de votre controlleur appelera la vue 'initialize.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/initialize','extist'=>$existe,'products'=>Product::all());
-- Cette vue indiquera, grâce à $exist, soit
+- Dans cette méthode vous ajouterez 2 produits en DB uniquement s'il n'y a pas de produits dans la table produits.
+- Cette méthode initialize de votre controlleur appelera la vue 'initialize.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/initialize','exists'=>\$existe,'products'=>\$produits);  A vous de remplir \$existe et \$produits de la manière adéquate. ;) 
+- Cette vue, affichera, grâce à $exists et $products, soit
   - Rien à faire, la table products n'est pas vide.
   - La table products a été initialisée avec des produits par défaut.
 - A la fin de la vue, on appelera la vue list.blade.php via la commande @include('products/list'); De cette manière, qu'il y ait eu ou non initialisation de la table products, on affichera les produits.
+
+Pour tester, exécutez php artisan migrate:fresh ce qui videra les différentes tables en DB.
+
+Lorsque vous appelerez la route products/list, votre programme devrait  afficher "La table products a été initialisée avec des produits par défaut." et afficher les produits en DB qui viennent d'être créés.
+
+La seconde fois que vous irez sur products/list, votre programme devrait afficher "Rien à faire, la table products n'est pas vide." et afficher les produits en DB.
+
+
 
 ## Exercice n°5
 - Créez deux routes 'products/new'
