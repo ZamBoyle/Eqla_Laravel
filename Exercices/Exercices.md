@@ -264,31 +264,41 @@ Pour faire cette partie, n'oubliez pas que vous avez la théorie sur les [bases 
 ## Exercice n°2
 - Créez une migration nommée create_products_table
 - Dans la fonction up() de cette migration laissez id() et timespams() et ajoutez les champs suivants:
-  - nom de type string qui doit être unique.
-  - prix de type decimal.
+  - name de type string qui doit être unique.
+  - price de type decimal.
   - stock de type integer.
   - discontinued de type boolean ayant une valeur par défaut à false.
 - Créez un modèle nommée Product
 
 ## Exercice n°3
+- Créez une route 'products/list' qui appelera le contrôleur ProductController et sa méthode index().
+- Ce contrôleur, que vous allez créer, enverra en paramètre tous les produits à la vue nommée list.blade.php qui se trouvera dans le répertoire views/products.
+- Lors de l'envoie des paramètres à la vue, nommez la variable de destination 'products'.
+- Cette vue affichera, tous les attributs d'un produit.
+- Affichez un message s'il n'y a pas de produits.
+
+Exemples de return de la function index:
+- return view('products/list')->with('products',$produits);
+- return view('products/list', ['products'=>$produits]);
+
+A vous de trouver comment affecter $produits avec tous les produits de la DB. ;) 
+
+## Exercice n°4
 - Créez une route 'products/initialize' qui va créer les 4 premiers produits de la table produits.
 - Cette route appelera le contrôleur ProductController et sa méthode initialize().
 - Dans cette méthode vous ajouterez 4 produits en DB uniquement s'il n'y a pas de produits dans la table produits.
-- Cette méthode initialize de votre controller appelera la vue 'initialize.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/initialize','extist'=>$existe,'products'=>Product::all());
-- Cette vue indiquera, grâce à produits->count() == 0, soit
-  - que la table products n'a pas été initialisée avec les 4 produits par défault car ils étaient existants.
-  - le nombre de produits qui ont été ajouté à la DB lors de la phase d'initialisation de la table products.
-
-## Exercice n°4
-- Créez une route 'products/list' qui appelera le contrôleur ProductController et sa méthode index.
-- Ce contrôleur, que vous allez créer, retournera la liste des produits à la vue nommée list.blade.php qui se trouvera dans le répertoire views/products. 
-- Cette vue affichera, tous les attributs d'un produit. Présentez comme vous voulez ces informations.
-- Affichez un message s'il n'y a pas de produits.
+- Cette méthode initialize de votre controlleur appelera la vue 'initialize.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/initialize','extist'=>$existe,'products'=>Product::all());
+- Cette vue indiquera, grâce à $exist, soit
+  - Rien à faire, la table products n'est pas vide.
+  - La table products a été initialisée avec des produits par défaut.
+- A la fin de la vue, on appelera la vue list.blade.php via la commande @include('products/list'); De cette manière, qu'il y ait eu ou non initialisation de la table products, on affichera les produits.
 
 ## Exercice n°5
-- Créez une route 'products/new' qui appelera une vue qui affichera les champs nécessaires pour encoder un nouveau produit.
+- Créez deux routes 'products/new'
+  - une utilisant la méthode get et qui appelera une vue qui affichera les champs nécessaires pour encoder un nouveau produit.
+  - une utilisant la méthode post et qui appelera le controller pour ajouter le produit et affichera la vue pour indiquer que le produit a été créer.
 - L'envoie du formulaire utilisera la méthode POST.
-- L'attribution action="{{ url('products/')}}
+- L'attribution action="{{ url('products/new')}}
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
