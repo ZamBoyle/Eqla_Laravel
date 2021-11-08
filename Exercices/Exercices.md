@@ -301,8 +301,6 @@ Lorsque vous appelerez la route products/list, votre programme devrait  afficher
 
 La seconde fois que vous irez sur products/list, votre programme devrait afficher "Rien à faire, la table products n'est pas vide." et afficher les produits en DB.
 
-
-
 ## Exercice n°5
 - Créez deux routes 'products/new'
   - une utilisant la méthode get et qui appelera une vue qui affichera les champs nécessaires pour encoder un nouveau produit.
