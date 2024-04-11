@@ -1,3 +1,4 @@
+<h1>Formation Laravel</h1>
 Cher stagiaire :man_student: ! 
 
 Bienvenue sur la formation Laravel ! Ce dépôt sera souvent mis à jour, n'oubliez pas souvent de faire un git pull.
