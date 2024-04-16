@@ -9,5 +9,5 @@ Vous trouverez l'ensemble du cours découpé en plusieurs parties:
 <!-- 3. [Correction des Exercices](Exercices/Correction.md) -->
 
 ---
-_[Eqla](http://www.eqla.be) 2021 - Formation Laravel_
+_[Eqla](http://www.eqla.be) 2024 - Formation Laravel_
 

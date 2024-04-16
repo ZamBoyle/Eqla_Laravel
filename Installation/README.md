@@ -9,4 +9,4 @@ Pour l'installation de ces programmes, veuillez consulter le document suivant: [
 [:arrow_left:Revenir au menu général.](../README.md)
 
 ---
-_[Eqla](http://www.eqla.be) 2021 - Formation Laravel_
+_[Eqla](http://www.eqla.be) 2024 - Formation Laravel_
