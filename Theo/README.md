@@ -12,10 +12,11 @@ L'ensemble des points de matière se trouvent dans les documents suivants:<br/><
 8. [Les vues](8.%20Les%20vues.md)
 9. [Blade](9.%20Blade.md)
 10. [Les réponses](10.%20Reponses.md)
-11. [Les contrôleurs](11.%20Les%20contrôleurs.md)
-12. [Les formulaires](12.%20Les%20formulaires.md)
-13. [Les bases de données](13.%20Les%20base%20de%20données.md)
-<!-- 14. [Les sessions](13.%20Les%20sessions.md) -->
+11. [Les requêtes](11.%20Request.md)
+12. [Les contrôleurs](12.%20Les%20contrôleurs.md)
+13. [Les formulaires](13.%20Les%20formulaires.md)
+14. [Les bases de données](14.%20Les%20base%20de%20données.md)
+
 
 [:arrow_left:Revenir au menu général.](../README.md)
 
