@@ -79,12 +79,20 @@ Tout comme pour l'exercice 4, passez ces paramètres à une vue via deux manièr
 # III. Les vues
 ## Exercice n°1 - Simple
 Créez une vue qui affiche en titre1 Welcome !
+Cette vue sera nommée vue1.blade.php et sera appelée par la route '/vue1'
 
 ## Exercice n°2 - Avec un paramètre
 Créez la vue l'exercice n°3 du point II (Routage).
+Cette vue sera nommée vue2.blade.php. C'est dans cette vue que vous afficherez le paramètre que vous aurez reçu par votre route.
 
 ## Exercice n°3 - Avec plusieurs paramètres
 Créez la vue l'exercice n°4 du point II (Routage).
+Cette vue sera nommée vue3.blade.php. C'est dans cette vue que vous afficherez les paramètres que vous aurez reçu par votre route.
+
+## Exercice n°4 - Avec Bootstrap
+Créez une vue qui intègrera Bootstrap. Vous pouvez utiliser le CDN de Bootstrap pour cela. Vous afficherez un titre1 avec le texte suivant: "Bienvenue sur notre site user". Où user est le nom de l'utilisateur que vous aurez reçu par votre route.
+
+La route sera '/user/welcome/{name}' et pointera vers la vue 'userwelcome.blade.php'
 
 # IV. Blade
 Dans les exercices suivants n'utilisez jamais directement la fonction echo. Blade permet d'afficher rapidement des variables.
