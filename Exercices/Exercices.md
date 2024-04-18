@@ -1,6 +1,10 @@
 [:arrow_left:Revenir au menu général.](../README.md)
 <h1> Exercices Laravel</h1>
 
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
 - [I. Création d'un projet](#i-création-dun-projet)
   - [Exercice n°1 - Avec composer](#exercice-n1---avec-composer)
   - [Exercice n°2 - Avec Laravel Installer](#exercice-n2---avec-laravel-installer)
@@ -18,6 +22,7 @@
   - [Exercice n°1 - Simple](#exercice-n1---simple)
   - [Exercice n°2 - Avec un paramètre](#exercice-n2---avec-un-paramètre)
   - [Exercice n°3 - Avec plusieurs paramètres](#exercice-n3---avec-plusieurs-paramètres)
+  - [Exercice n°4 - Avec Bootstrap](#exercice-n4---avec-bootstrap)
 - [IV. Blade](#iv-blade)
   - [Exercice n°1](#exercice-n1)
   - [Exercice n°2](#exercice-n2)
@@ -35,6 +40,10 @@
   - [Exercice n°3](#exercice-n3-1)
   - [Exercice n°4](#exercice-n4-1)
   - [Exercice n°5](#exercice-n5-1)
+
+<!-- /code_chunk_output -->
+
+
 
 
 # I. Création d'un projet
