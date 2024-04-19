@@ -208,13 +208,11 @@ function keydown() {
 # V. Les contrôleurs
 ## Exercice n°1
 En suivant la théorie sur les contrôleurs, créez le contrôleur PersonController qui y est présenté.
-Ce contrôleur aura donc 5 méthodes:
-- hi
+Ce contrôleur aura donc 4 méthodes:
 - getUsersList
 - getUsersByName
 - getUsersByFirstname
 - getUsersBySomething
-- search
 
 Il y aura 4 routes:
 - users/List
