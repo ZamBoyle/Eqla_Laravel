@@ -31,6 +31,7 @@
   - [Exercice n°5](#exercice-n5)
   - [Exercice n°6](#exercice-n6)
   - [Exercice n°7](#exercice-n7)
+  - [Exercice n°8](#exercice-n8)
 - [V. Les contrôleurs](#v-les-contrôleurs)
   - [Exercice n°1](#exercice-n1-1)
   - [Exercice n°2](#exercice-n2-1)
@@ -204,6 +205,22 @@ function keydown() {
     }, 1000);
 }
 ```
+
+## Exercice n°8
+Créez une vue nommée bladeExercice8.blade.php et un composant nommé App. Pour créer ce composant, vous utiliserez la commande artisan suivante:
+```bash
+php artisan make:component App
+```
+Ce composant se trouve dans le répertoire re
+
+Dans ce modèle, vous allez ajouter une page complète avec Bootstrap.
+Vous allez y ajouter une entrée pour les champs suivants:
+- title (obligatoire)
+- css (optionnel)
+- script (optionnel)
+- content (obligatoire)
+- footer (optionnel)
+- 
 
 # V. Les contrôleurs
 ## Exercice n°1
