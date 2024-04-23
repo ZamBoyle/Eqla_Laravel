@@ -33,11 +33,19 @@
   - [Exercice n°7](#exercice-n7)
   - [Exercice n°8](#exercice-n8)
 - [V. Les contrôleurs](#v-les-contrôleurs)
+  - [Exercice 1 : Calculatrice en ligne](#exercice-1--calculatrice-en-ligne)
+    - [Fonctionnalités attendues](#fonctionnalités-attendues)
+    - [Contraintes](#contraintes)
+  - [Exercice 2: Création d'un système de recherche d'utilisateurs](#exercice-2-création-dun-système-de-recherche-dutilisateurs)
+    - [Fonctionnalités attendues](#fonctionnalités-attendues-1)
+    - [Contraintes](#contraintes-1)
+    - [Données à utiliser](#données-à-utiliser)
+    - [Méthodes à utiliser dans le contrôleur PersonController](#méthodes-à-utiliser-dans-le-contrôleur-personcontroller)
+    - [Vues à utiliser](#vues-à-utiliser)
+    - [Conseils](#conseils)
+- [VI. Les bases de données](#vi-les-bases-de-données)
   - [Exercice n°1](#exercice-n1-1)
   - [Exercice n°2](#exercice-n2-1)
-- [VI. Les bases de données](#vi-les-bases-de-données)
-  - [Exercice n°1](#exercice-n1-2)
-  - [Exercice n°2](#exercice-n2-2)
   - [Exercice n°3](#exercice-n3-1)
   - [Exercice n°4](#exercice-n4-1)
   - [Exercice n°5](#exercice-n5-1)
@@ -223,69 +231,239 @@ Vous allez y ajouter une entrée pour les champs suivants:
 - 
 
 # V. Les contrôleurs
-## Exercice n°1
+## Exercice 1 : Calculatrice en ligne
+
+Vous devez créer une calculatrice en ligne en utilisant le framework Laravel. La calculatrice doit permettre à l'utilisateur d'effectuer des opérations de base (addition, soustraction, multiplication, division) sur deux nombres.
+
+### Fonctionnalités attendues
+
+* Une page d'accueil qui affiche le formulaire de calculatrice (Route : `Route::view('calculator', 'calculator');`
+* Un formulaire qui permet à l'utilisateur de saisir deux nombres et de choisir l'opération à effectuer (addition, soustraction, multiplication, division)
+* Un `<select>` pour choisir entre différentes options `<option>` à effectuer: addition, soustraction, multiplication, division par défaut addition. Pour rappel:
+    ```html
+    <select name="operation">
+        <option value="addition" selected>Addition</option>
+        <option value="subtraction">Soustraction</option>
+        <option value="multiplication">Multiplication</option>
+        <option value="division">Division</option>
+    </select>
+    ```
+* Un bouton de soumission qui enverra les données du formulaire à une route de calcul (Route : `Route::post('calculate', [CalculatorController::class, 'calculate'])`)
+* Un contrôleur `CalculatorController` qui contiendra une méthode `calculate` pour effectuer le calcul. Cette méthode prendra en paramètre une instance de `Request` et renverra (return) la vue `result` avec le résultat de l'opération de calcul. Exemple de signature: `public function calculate(Request $request): View`
+* Ajoutez un use /illuminate/View/View; pour pouvoir utiliser la classe View dans votre contrôleur.
+* Une vue des résultats nommée `result` qui affichera le résultat de l'opération de calcul. Elle affichera par exemple: `Le résultat de l'opération est : 5`. Cette vue sera appelée par la méthode du contrôleur `calculate`.
+
+### Contraintes
+
+* Vous devez utiliser les routes, les contrôleurs, les vues et les modèles de Laravel pour implémenter la calculatrice
+* Vous devez utiliser les mécanismes de sécurité de Laravel pour protéger les données des utilisateurs: vous ajouterez la directive `@csrf` dans le formulaire de calcul juste après la balise `<form>`.
+* Vous devez utiliser des vues Blade pour afficher les données aux utilisateurs
+* votre formulaire commencera par `<form method="POST" action="{{ url('calculate') }}">`
+* Attention à la division par zéro: affichez le message à la place du résultat `Division par zéro impossible` si l'utilisateur essaie de diviser par zéro.
+
+
+## Exercice 2: Création d'un système de recherche d'utilisateurs
+
+Vous devez créer un système de recherche d'utilisateurs en utilisant le framework Laravel. Le système doit permettre à l'utilisateur de rechercher des utilisateurs par nom, prénom ou nom et prénom.
+
+### Fonctionnalités attendues
+
+* Une page d'accueil qui affiche la liste de tous les utilisateurs (Route : `Route::get('users', [PersonController::class, 'index'])`)
+* Une page de recherche qui permet à l'utilisateur de choisir le mode de recherche via un la balise `<select>` avec les options suivantes:
+    - nom
+    - prénom
+    - nom et prénom
+* Et de saisir le critère de recherche (Route : `Route::get('users/search', function () { ... })`)
+* Le formulaire de recherche appellera la route `Route::post('users/search', [PersonController::class, 'search'])`
+* Une page de résultats qui affiche la liste des utilisateurs correspondant au critère de recherche
+    * `Route::get('users/name/{name}', [PersonController::class, 'showUsersByName'])`
+    * `Route::get('users/firstname/{firstname}', [PersonController::class, 'showUsersByFirstname'])`
+    * `Route::get('users/name-or-firstname/{criteria}', [PersonController::class, 'showUsersByNameOrFirstname'])`
+
+### Contraintes
+
+* Vous devez utiliser les routes, les contrôleurs, les vues et les modèles de Laravel pour implémenter le système de recherche
+* Vous devez utiliser les mécanismes de sécurité de Laravel pour protéger les données des utilisateurs: vous ajouterez la directive `@csrf` dans le formulaire de recherche juste après la balise `<form>`.
+* Vous devez utiliser des vues Blade pour afficher les données aux utilisateurs
+
+### Données à utiliser
+
+* Un tableau d'utilisateurs privé dans la classe `PersonController` :
+```
+private array $users = [
+    ["id" => 1, "name" => "Piette", "firstname" => "Johnny"],
+    ["id" => 2, "name" => "Piette", "firstname" => "Gabriel"],
+    ["id" => 3, "name" => "Dupont", "firstname" => "Philip"],
+    ["id" => 4, "name" => "Colin", "firstname" => "Stéphane"],
+    ["id" => 5, "name" => "Jacques", "firstname" => "Véronique"],
+    ["id" => 6, "name" => "Larock", "firstname" => "Jacques"]
+];
+```
+
+### Méthodes à utiliser dans le contrôleur PersonController
+
+* `searchUsersByCriteria` (méthode privée)
+Voici l'implémentation de la méthode `searchUsersByCriteria` :
+```php
+    private function searchUsersByCriteria($field, $search): array
+    {
+        $search = strtolower($search);
+        $persons = [];
+
+        foreach ($this->users as $user) {
+            switch ($field) {
+                case 'name':
+                    if (str_contains(strtolower($user['name']), $search) === true) { // true n'est pas obligatoire
+                        $persons[] = $user;
+                    }
+                    break;
+                case 'firstname':
+                    if (str_contains(strtolower($user['firstname']), $search)) {
+                        $persons[] = $user;
+                    }
+                    break;
+                case 'criteria':
+                    if (str_contains(strtolower($user['name']), $search) || str_contains(strtolower($user['firstname']), $search)) {
+                        $persons[] = $user;
+                    }
+                    break;
+            }
+        }
+        return $persons;
+    }
+```
+* `index`: appelle la vue `users.index` pour afficher la liste de tous les utilisateurs
+* `showUsersByName`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au nom
+* `showUsersByFirstname`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au prénom
+* `showUsersByNameOrFirstname`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au nom ou au prénom
+* `search`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au critère de recherche.
+
+> **Attention** :
+> Vous devez utiliser la méthode `searchUsersByCriteria` dans les méthodes `showUsersByName`, `showUsersByFirstname`, `showUsersByNameOrFirstname` et `search` pour récupérer les utilisateurs correspondant au critère de recherche.
+>
+> Ensuite, vous passerez ces utilisateurs ($persons) à la vue `users.result` pour les afficher.
+>
+> Pour vous aider, les méthodes `showUsersByName`, `showUsersByFirstname`, `showUsersByNameOrFirstname` n'auront que deux lignes de code: un tableau `$persons` qui contiendra les utilisateurs correspondant au critère de recherche (cad reçu par la méthode de recherche `searchUsersByCriteria`) et un appel à la vue `users.result` pour afficher les utilisateurs.
+>
+> L'intérêt de cette méthode est de factoriser le code et de ne pas répéter le code de recherche dans chaque méthode du contrôleur.
+
+### Vues à utiliser
+* `users.index`: affiche la liste de tous les utilisateurs
+* `users.search`: affiche le formulaire de recherche
+* `users.result`: affiche la liste des utilisateurs correspondant au critère de recherche
+
+
+### Conseils
+
+* Assurez-vous de bien organiser vos fichiers et vos classes pour que le système de recherche fonctionne correctement.
+* Utilisez les mécanismes de sécurité de Laravel pour protéger les données des utilisateurs.
+* Pour déterminer le mode de recherche, vous pouvez utiliser un champ de formulaire de type `select` pour stocker le mode de recherche (par exemple, "name", "firstname" ou "criteria"). Vous pouvez ensuite utiliser ce champ pour déterminer la méthode à appeler dans votre contrôleur.
+
+<!--
+**Exemple de code HTML pour le formulaire de recherche**
+```html
+<form method="POST" action="{{ route('users.search') }}">
+    @csrf
+    <select name="mode">
+        <option value="name">Nom</option>
+        <option value="firstname">Prénom</option>
+        <option value="criteria">Nom ou prénom</option>
+    </select>
+    <input type="text" name="search" required>
+    <button type="submit">Rechercher</button>
+</form>
+```
+-->
+
+<!-- ## Exercice n°1
 En suivant la théorie sur les contrôleurs, créez le contrôleur PersonController qui y est présenté.
+
+Dans ce contrôleur, vous allez créer un champ privé pour accéder 
+ tableau de personnes:
+```php
+    private array $users = [
+        ["name" => "Piette", "firstname" => "Johnny"],
+        ["name" => "Piette", "firstname" => "Gabriel"],
+        ["name" => "Dupont", "firstname" => "Philip"],
+        ["name" => "Colin", "firstname" => "Stéphane"],
+        ["name" => "Jacques", "firstname" => "Véronique"],
+        ["name" => "Larock", "firstname" => "Jacques"]
+    ];
+```
+Ce tableau simule une base de données.
+
+Vous allez créer une vue nommée `results` qui affichera les résultats. Elle recevra un tableau de personnes en paramètre. Ce tableau sera le résultat d'une recherche sur le tableau inital de personnes.
+
 Ce contrôleur aura donc 4 méthodes:
-- getUsersList
-- getUsersByName
-- getUsersByFirstname
-- getUsersBySomething
+- `index`: qui retournera le tableau de personnes en paramètre à la la vue 'results'.
+- `showByName`: qui retournera un tableau de personnes ayant le nom passé en paramètre à la vue 'results'.
+- `showByFirstname`: qui retournera un tableau de personnes ayant le prénom passé en paramètre à la vue 'results'.
+- `showByCriteria`: qui retournera un tableau de personnes ayant le critère passé en paramètre à la vue 'results'. J'entends par critère le nom et/ou le prénom.
+
+> Pour réaliser ces méthodes, vous pouvez utiliser une boucle foreach ou for pour parcourir le tableau de personnes et voir si ce que vous avez reçu en paramètre correspond à ce que vous avez dans le tableau. Si oui, vous ajoutez cette personne dans un tableau temporaire qui sera envoyé à la vue 'results'.
+> Si vous avez le temps, vous pouvez utiliser la méthode array_filter mais qui est plus complexe.
 
 Il y aura 4 routes:
-- users/List
-- users/SearchByName/{name}
-- users/SearchByFirstname/{firstname}
-- users/SearchBySomehting/{thing}
-Et pour finir, une vue nommée Results.blade.php
-
-Il n'y a rien de compliqué, je pense, il suffit de suivre pas à pas la théorie pour faire cet exercice.
+- `users/` qui appellera la méthode `index` du contrôleur PersonController.
+- `users/by-name/{name}`  qui appellera la méthode `showByName` du contrôleur PersonController.
+- `users/by-firstname/{firstname}` qui appellera la méthode `showByFirstname` du contrôleur PersonController.
+- `users/by-criteria/{criteria}` qui appellera la méthode `showByCriteria` du contrôleur PersonController.
 
 ## Exercice n°2
-Dans web.php, ajoutez une route 'search' qui appelera la vue search.blade.php
+Dans web.php, ajoutez une route 'search' qui appelera la vue search
 
-Vous allez créer un formulaire permettant d'entrer deux champs: le nom et le prénom. Ils auront comme name/id (name et firstname).
+Vous allez créer un formulaire avec trois champs:
+- le nom
+- le prénom
+- un critère
+
+
 
 Dans cette vue search, vous allez mettre comme attributs à la balise
 form:
-- action="{{ url('users') }}"
+- action="{{ url('users/by-criteria/') }}"
 - method="POST">
 
-Vous ajouterez dans le formulaire la directive blade: @csrf 
-Comme vous le voyez, on a demandé d'appeler la route 'users' dans Action et on a demandé la méthode 'POST'.
+Vous ajouterez dans le formulaire la directive blade: @csrf  qui permet de protéger votre formulaire des attaques CSRF (= Cross-Site Request Forgery: attaque qui consiste à forger une requête HTTP pour qu'elle semble provenir d'un utilisateur légitime): Nous verons plus tard les formulaires.
+Comme vous le voyez, on a demandé d'appeler la route 'users' dans l'attribut action et on a demandé la méthode 'POST'.
 
 Il faut donc ajouter une route qui va tenir compte de cela:
 ```php
-Route::post('users', [PersonController::class, 'searchForm']);
+Route::post('users', [PersonController::class, 'search']);
 ``` 
-Le 'searchForm' indique que l'on aura dans notre PersonController la méthode searchForm:
+Le 'search' indique que l'on aura dans notre PersonController la méthode search:
 ```php
-  public function searchForm(Request $request)
+  public function search(Request $request)
   {
       $array = array();
       $name = $request->input('name');
       $firstname = $request->input('firstname');
 
       #On recherche sur le nom ET prénom
-      if (isset($name) && isset($firstname)) {
+      if ($name && $firstname) {
           foreach ($this->users as $user) {
               $userObj = (object)$user;
               if (strtolower($userObj->name) === strtolower($name) && strtolower($userObj->firstname) === strtolower($firstname)) {
                   array_push($array, $user);
               }
           }
-      } else {
-          #On recherche sur le prénom
-          if (!isset($name) && isset($firstname)) {
-              return $this->getUsersByFirstname($firstname);
+      } elseif ($firstname) {
+           return $this->getUsersByFirstname($firstname);
           }
           #On recherche sur le nom
-          if (isset($name) && !isset($firstname)) {
-              return $this->getUsersByName($name);
+          elseif ($name) {
+              return $this->showByName($name);
           }
+          else {
+              return view
       }
       return view('results', ['users' => $array]);        
   }
 ```
+
+Dans cette méthode, on récupère les valeurs des champs name et firstname. On vérifie si les deux champs sont remplis. Si c'est le cas, on recherche les utilisateurs ayant le nom et le prénom correspondant. Si un seul des deux champs est rempli, on recherche sur le nom ou le prénom. Si aucun des deux champs n'est rempli, on affiche tous les utilisateurs. -->
+
+
 # VI. Les bases de données
 Pour faire cette partie, n'oubliez pas que vous avez la théorie sur les [bases de données](../Theo/14.%20Les%20base%20de%20données.md) pour vous aider.
 ## Exercice n°1
