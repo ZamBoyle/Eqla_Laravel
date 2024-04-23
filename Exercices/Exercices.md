@@ -228,7 +228,6 @@ Vous allez y ajouter une entrée pour les champs suivants:
 - script (optionnel)
 - content (obligatoire)
 - footer (optionnel)
-- 
 
 # V. Les contrôleurs
 ## Exercice 1 : Calculatrice en ligne
@@ -239,7 +238,8 @@ Vous devez créer une calculatrice en ligne en utilisant le framework Laravel. L
 
 * Une page d'accueil qui affiche le formulaire de calculatrice (Route : `Route::view('calculator', 'calculator');`
 * Un formulaire qui permet à l'utilisateur de saisir deux nombres et de choisir l'opération à effectuer (addition, soustraction, multiplication, division)
-* Un `<select>` pour choisir entre différentes options `<option>` à effectuer: addition, soustraction, multiplication, division par défaut addition. Pour rappel:
+* Un `<select>` pour choisir entre différentes options `<option>` à effectuer: addition, soustraction, multiplication, division par défaut addition.
+<!--Pour rappel:
     ```html
     <select name="operation">
         <option value="addition" selected>Addition</option>
@@ -247,8 +247,8 @@ Vous devez créer une calculatrice en ligne en utilisant le framework Laravel. L
         <option value="multiplication">Multiplication</option>
         <option value="division">Division</option>
     </select>
-    ```
-* Un bouton de soumission qui enverra les données du formulaire à une route de calcul (Route : `Route::post('calculate', [CalculatorController::class, 'calculate'])`)
+    ```-->
+* Un bouton de soumission qui enverra les données du formulaire à une route 'calculate' via le protocole post et appelera la méthode calculate de CalculatorController.
 * Un contrôleur `CalculatorController` qui contiendra une méthode `calculate` pour effectuer le calcul. Cette méthode prendra en paramètre une instance de `Request` et renverra (return) la vue `result` avec le résultat de l'opération de calcul. Exemple de signature: `public function calculate(Request $request): View`
 * Ajoutez un use /illuminate/View/View; pour pouvoir utiliser la classe View dans votre contrôleur.
 * Une vue des résultats nommée `result` qui affichera le résultat de l'opération de calcul. Elle affichera par exemple: `Le résultat de l'opération est : 5`. Cette vue sera appelée par la méthode du contrôleur `calculate`.
@@ -289,7 +289,7 @@ Vous devez créer un système de recherche d'utilisateurs en utilisant le framew
 ### Données à utiliser
 
 * Un tableau d'utilisateurs privé dans la classe `PersonController` :
-```
+```php
 private array $users = [
     ["id" => 1, "name" => "Piette", "firstname" => "Johnny"],
     ["id" => 2, "name" => "Piette", "firstname" => "Gabriel"],
@@ -299,6 +299,7 @@ private array $users = [
     ["id" => 6, "name" => "Larock", "firstname" => "Jacques"]
 ];
 ```
+Vous pourrez y accéder dans vos méthodes via `$this->users`.
 
 ### Méthodes à utiliser dans le contrôleur PersonController
 
