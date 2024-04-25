@@ -34,15 +34,16 @@
   - [Exercice n°8](#exercice-n8)
 - [V. Les contrôleurs](#v-les-contrôleurs)
   - [Exercice 1 : Calculatrice en ligne](#exercice-1--calculatrice-en-ligne)
-    - [Fonctionnalités attendues](#fonctionnalités-attendues)
-    - [Contraintes](#contraintes)
+    - [a. Fonctionnalités attendues](#a-fonctionnalités-attendues)
+    - [b. Contraintes](#b-contraintes)
+    - [c. Nous aurions pu avoir un showCalculator](#c-nous-aurions-pu-avoir-un-showcalculator)
   - [Exercice 2: Création d'un système de recherche d'utilisateurs](#exercice-2-création-dun-système-de-recherche-dutilisateurs)
-    - [Fonctionnalités attendues](#fonctionnalités-attendues-1)
-    - [Contraintes](#contraintes-1)
-    - [Données à utiliser](#données-à-utiliser)
-    - [Méthodes à utiliser dans le contrôleur PersonController](#méthodes-à-utiliser-dans-le-contrôleur-personcontroller)
-    - [Vues à utiliser](#vues-à-utiliser)
-    - [Conseils](#conseils)
+    - [a. Fonctionnalités attendues](#a-fonctionnalités-attendues-1)
+    - [b. Contraintes](#b-contraintes-1)
+    - [c. Données à utiliser](#c-données-à-utiliser)
+    - [d. Méthodes à utiliser dans le contrôleur PersonController](#d-méthodes-à-utiliser-dans-le-contrôleur-personcontroller)
+    - [e. Vues à utiliser](#e-vues-à-utiliser)
+    - [f. Conseils](#f-conseils)
 - [VI. Les bases de données](#vi-les-bases-de-données)
   - [Exercice n°1](#exercice-n1-1)
   - [Exercice n°2](#exercice-n2-1)
@@ -234,7 +235,7 @@ Vous allez y ajouter une entrée pour les champs suivants:
 
 Vous devez créer une calculatrice en ligne en utilisant le framework Laravel. La calculatrice doit permettre à l'utilisateur d'effectuer des opérations de base (addition, soustraction, multiplication, division) sur deux nombres.
 
-### Fonctionnalités attendues
+### a. Fonctionnalités attendues
 
 * Une page d'accueil qui affiche le formulaire de calculatrice (Route : `Route::view('calculator', 'calculator');`
 * Un formulaire qui permet à l'utilisateur de saisir deux nombres et de choisir l'opération à effectuer (addition, soustraction, multiplication, division)
@@ -253,7 +254,7 @@ Vous devez créer une calculatrice en ligne en utilisant le framework Laravel. L
 * Ajoutez un use /illuminate/View/View; pour pouvoir utiliser la classe View dans votre contrôleur.
 * Une vue des résultats nommée `result` qui affichera le résultat de l'opération de calcul. Elle affichera par exemple: `Le résultat de l'opération est : 5`. Cette vue sera appelée par la méthode du contrôleur `calculate`.
 
-### Contraintes
+### b. Contraintes
 
 * Vous devez utiliser les routes, les contrôleurs, les vues et les modèles de Laravel pour implémenter la calculatrice
 * Vous devez utiliser les mécanismes de sécurité de Laravel pour protéger les données des utilisateurs: vous ajouterez la directive `@csrf` dans le formulaire de calcul juste après la balise `<form>`.
@@ -261,12 +262,27 @@ Vous devez créer une calculatrice en ligne en utilisant le framework Laravel. L
 * votre formulaire commencera par `<form method="POST" action="{{ url('calculate') }}">`
 * Attention à la division par zéro: affichez le message à la place du résultat `Division par zéro impossible` si l'utilisateur essaie de diviser par zéro.
 
+### c. Nous aurions pu avoir un showCalculator
+Nous aurions pu faire une méthode `showCalculator` dans le contrôleur `CalculatorController` mais cela n'est pas nécessaire car notre formulaire n'a aucun traitement particulier.
+
+Méthode `showCalculator` dans le contrôleur `CalculatorController`:
+```php
+    public function showCalculator()
+    {
+        return view('calculator');
+    }
+```
+Dans le fichier `web.php`, vous aurez la route suivante:
+```php
+Route::view('calculator', [CalculatorController::class, 'showCalculator']);
+```
+
 
 ## Exercice 2: Création d'un système de recherche d'utilisateurs
 
 Vous devez créer un système de recherche d'utilisateurs en utilisant le framework Laravel. Le système doit permettre à l'utilisateur de rechercher des utilisateurs par nom, prénom ou nom et prénom.
 
-### Fonctionnalités attendues
+### a. Fonctionnalités attendues
 
 * Une page d'accueil qui affiche la liste de tous les utilisateurs (Route : `Route::get('users', [PersonController::class, 'index'])`)
 * Une page de recherche qui permet à l'utilisateur de choisir le mode de recherche via un la balise `<select>` avec les options suivantes:
@@ -280,13 +296,13 @@ Vous devez créer un système de recherche d'utilisateurs en utilisant le framew
     * `Route::get('users/firstname/{firstname}', [PersonController::class, 'showUsersByFirstname'])`
     * `Route::get('users/name-or-firstname/{criteria}', [PersonController::class, 'showUsersByNameOrFirstname'])`
 
-### Contraintes
+### b. Contraintes
 
 * Vous devez utiliser les routes, les contrôleurs, les vues et les modèles de Laravel pour implémenter le système de recherche
 * Vous devez utiliser les mécanismes de sécurité de Laravel pour protéger les données des utilisateurs: vous ajouterez la directive `@csrf` dans le formulaire de recherche juste après la balise `<form>`.
 * Vous devez utiliser des vues Blade pour afficher les données aux utilisateurs
 
-### Données à utiliser
+### c. Données à utiliser
 
 * Un tableau d'utilisateurs privé dans la classe `PersonController` :
 ```php
@@ -301,7 +317,7 @@ private array $users = [
 ```
 Vous pourrez y accéder dans vos méthodes via `$this->users`.
 
-### Méthodes à utiliser dans le contrôleur PersonController
+### d. Méthodes à utiliser dans le contrôleur PersonController
 
 * `searchUsersByCriteria` (méthode privée)
 Voici l'implémentation de la méthode `searchUsersByCriteria` :
@@ -312,27 +328,33 @@ Voici l'implémentation de la méthode `searchUsersByCriteria` :
         $persons = [];
 
         foreach ($this->users as $user) {
+            $firstname = strtolower($user['firstname']);
+            $name = strtolower($user['name']);
             switch ($field) {
                 case 'name':
-                    if (str_contains(strtolower($user['name']), $search) === true) { // true n'est pas obligatoire
+                    if (Str::startsWith($name, $search)) {
                         $persons[] = $user;
-                    }
-                    break;
+                    }           
                 case 'firstname':
-                    if (str_contains(strtolower($user['firstname']), $search)) {
+                    if (Str::startsWith($firstname, $search)) {
                         $persons[] = $user;
                     }
                     break;
                 case 'criteria':
-                    if (str_contains(strtolower($user['name']), $search) || str_contains(strtolower($user['firstname']), $search)) {
+                    if (Str::startsWith($name, $search) || str_contains($firstname, $search)) {
                         $persons[] = $user;
                     }
+                    break;
+                default:
                     break;
             }
         }
         return $persons;
     }
 ```
+* `startsWith`: 
+    - Dans Laravel, vous pouvez utiliser la méthode `Str::startsWith` pour déterminer si une chaîne commence par une autre chaîne. Pour pouvoir utiliser cette méthode, vous devez ajouter le namespace `use Illuminate\Support\Str;` en haut de votre fichier de contrôleur. Cette méthode détermine si `$str` commence par `$prefix`. Elle renvoie `true` si la chaîne `$str` commence par la chaîne `$prefix` et `false` sinon. Attention, cette méthode est sensible à la casse. Donc si vous voulez ignorer la casse, vous devez utiliser la méthode `Str::startsWith(strtolower($str), strtolower($prefix))`.
+    - startWith est une classe helper de Laravel. Plus d'informations sur [Str::startsWith](https://laravel.com/docs/11.x/strings#method-starts-with)
 * `index`: appelle la vue `users.index` pour afficher la liste de tous les utilisateurs
 * `showUsersByName`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au nom
 * `showUsersByFirstname`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au prénom
@@ -348,14 +370,12 @@ Voici l'implémentation de la méthode `searchUsersByCriteria` :
 >
 > L'intérêt de cette méthode est de factoriser le code et de ne pas répéter le code de recherche dans chaque méthode du contrôleur.
 
-### Vues à utiliser
+### e. Vues à utiliser
 * `users.index`: affiche la liste de tous les utilisateurs
 * `users.search`: affiche le formulaire de recherche
 * `users.result`: affiche la liste des utilisateurs correspondant au critère de recherche
 
-
-### Conseils
-
+### f. Conseils
 * Assurez-vous de bien organiser vos fichiers et vos classes pour que le système de recherche fonctionne correctement.
 * Utilisez les mécanismes de sécurité de Laravel pour protéger les données des utilisateurs.
 * Pour déterminer le mode de recherche, vous pouvez utiliser un champ de formulaire de type `select` pour stocker le mode de recherche (par exemple, "name", "firstname" ou "criteria"). Vous pouvez ensuite utiliser ce champ pour déterminer la méthode à appeler dans votre contrôleur.
