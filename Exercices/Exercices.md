@@ -354,7 +354,7 @@ Voici l'implémentation de la méthode `searchUsersByCriteria` :
 ```
 * `startsWith`: 
     - Dans Laravel, vous pouvez utiliser la méthode `Str::startsWith` pour déterminer si une chaîne commence par une autre chaîne. Pour pouvoir utiliser cette méthode, vous devez ajouter le namespace `use Illuminate\Support\Str;` en haut de votre fichier de contrôleur. Cette méthode détermine si `$str` commence par `$prefix`. Elle renvoie `true` si la chaîne `$str` commence par la chaîne `$prefix` et `false` sinon. Attention, cette méthode est sensible à la casse. Donc si vous voulez ignorer la casse, vous devez utiliser la méthode `Str::startsWith(strtolower($str), strtolower($prefix))`.
-    - startWith est une classe helper de Laravel. Plus d'informations sur [Str::startsWith](https://laravel.com/docs/11.x/strings#method-starts-with)
+    - Plus d'informations sur [Str::startsWith](https://laravel.com/docs/11.x/strings#method-starts-with)
 * `index`: appelle la vue `users.index` pour afficher la liste de tous les utilisateurs
 * `showUsersByName`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au nom
 * `showUsersByFirstname`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au prénom
