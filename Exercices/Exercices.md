@@ -288,7 +288,7 @@ Vous devez créer un système de recherche d'utilisateurs en utilisant le framew
 * Une page de recherche qui permet à l'utilisateur de choisir le mode de recherche via un la balise `<select>` avec les options suivantes:
     - nom
     - prénom
-    - nom et prénom
+    - nom ou prénom
 * Et de saisir le critère de recherche (Route : `Route::get('users/search', function () { ... })`)
 * Le formulaire de recherche appellera la route `Route::post('users/search', [PersonController::class, 'search'])`
 * Une page de résultats qui affiche la liste des utilisateurs correspondant au critère de recherche
