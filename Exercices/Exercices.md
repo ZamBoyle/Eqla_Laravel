@@ -334,7 +334,8 @@ Voici l'implémentation de la méthode `searchUsersByCriteria` :
                 case 'name':
                     if (Str::startsWith($name, $search)) {
                         $persons[] = $user;
-                    }           
+                    }       
+                    break;    
                 case 'firstname':
                     if (Str::startsWith($firstname, $search)) {
                         $persons[] = $user;
