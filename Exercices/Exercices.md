@@ -342,7 +342,7 @@ Voici l'implémentation de la méthode `searchUsersByCriteria` :
                     }
                     break;
                 case 'criteria':
-                    if (Str::startsWith($name, $search) || str_contains($firstname, $search)) {
+                    if (Str::startsWith($name, $search) || Str::startsWith($firstname, $search)) {
                         $persons[] = $user;
                     }
                     break;
