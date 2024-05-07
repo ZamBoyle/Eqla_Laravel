@@ -201,12 +201,12 @@ window.addEventListener('load', (event) => {
 });
 
 function keydown() {
-    var body = document.getElementsByTagName("body")[0];
+    let body = document.getElementsByTagName("body")[0];
     document.removeEventListener("keydown", keydown);
-    var x = 10;
-    var intervalID = setInterval(function() {
+    let x = 10;
+    let intervalID = setInterval(function() {
         body.innerHTML += `<strong>Cette page va s'effacer dans ${x}.</strong><br/>`;
-        if (x == 0) {
+        if (x === 0) {
             body.innerHTML = "";
             window.clearInterval(intervalID);
         }
@@ -354,7 +354,7 @@ Voici l'implémentation de la méthode `searchUsersByCriteria` :
     }
 ```
 * `startsWith`: 
-    - Dans Laravel, vous pouvez utiliser la méthode `Str::startsWith` pour déterminer si une chaîne commence par une autre chaîne. Pour pouvoir utiliser cette méthode, vous devez ajouter le namespace `use Illuminate\Support\Str;` en haut de votre fichier de contrôleur. Cette méthode détermine si `$str` commence par `$prefix`. Elle renvoie `true` si la chaîne `$str` commence par la chaîne `$prefix` et `false` sinon. Attention, cette méthode est sensible à la casse. Donc si vous voulez ignorer la casse, vous devez utiliser la méthode `Str::startsWith(strtolower($str), strtolower($prefix))`.
+    - Dans Laravel, vous pouvez utiliser la méthode `Str::startsWith` pour déterminer si une chaîne commence par une autre chaîne. Pour pouvoir utiliser cette méthode, vous devez ajouter le namespace `use Illuminate\Support\Str;` en haut de votre fichier de contrôleur. Cette méthode détermine si `$str` commence par `$prefix`. Elle renvoie `true` si la chaîne `$str` commence par la chaîne `$prefix` et `false` sinon. Attention, cette méthode est sensible à la casse. Donc si vous voulez ignorer la casse, vous pouvez utiliser la méthode `Str::startsWith(strtolower($str), strtolower($prefix))`.
     - Plus d'informations sur [Str::startsWith](https://laravel.com/docs/11.x/strings#method-starts-with)
 * `index`: appelle la vue `users.index` pour afficher la liste de tous les utilisateurs
 * `showUsersByName`: appelle la vue `users.result` pour afficher la liste des utilisateurs correspondant au nom
@@ -494,13 +494,13 @@ Pour faire cette partie, n'oubliez pas que vous avez la théorie sur les [bases 
 - Connectez-vous à Mysql en ligne de commandes et créez la base de données dbexercices.
 
 ## Exercice n°2
-- Créez une migration nommée create_products_table
-- Dans la fonction up() de cette migration laissez id() et timespams() et ajoutez les champs suivants:
-  - name de type string qui doit être unique.
-  - price de type decimal.
-  - stock de type integer.
-  - discontinued de type boolean ayant une valeur par défaut à false.
-- Créez un modèle nommée Product
+- Créez une migration nommée `create_products_table`
+- Dans la fonction `up()` de cette migration laissez `id()` et `timespams()` et ajoutez les champs suivants:
+  - name de type `string` qui doit être `unique`.
+  - price de type `decimal`.
+  - stock de type `integer`.
+  - discontinued de type `boolean` ayant une `valeur par défaut` à `false`.
+- Créez un `modèle` nommée `Product`.
 
 ## Exercice n°3
 - Créez une route 'products/list' qui appelera le contrôleur ProductController et sa méthode index().
