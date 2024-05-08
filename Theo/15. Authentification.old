@@ -1,0 +1,61 @@
+[:arrow_left:Revenir à la théorie.](../Theo/README.md)
+<h1>Les authentifications</h1>
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
+<!-- code_chunk_output -->
+
+- [1. Introduction](#1-introduction)
+- [2. Installation de laravel/ui](#2-installation-de-laravelui)
+- [3. Configuration de laravel/ui](#3-configuration-de-laravelui)
+
+<!-- /code_chunk_output -->
+
+
+
+## 1. Introduction
+
+L'authentification est un processus qui permet de vérifier l'identité d'un utilisateur. Cela permet de contrôler l'accès à certaines ressources ou fonctionnalités d'une application.
+
+Laravel fournit plusieurs méthodes pour gérer l'authentification des utilisateurs. Vous pouvez utiliser le système d'authentification par défaut de Laravel ou créer votre propre système d'authentification.
+
+Nous allons voir comment utiliser le système d'authentification par défaut de Laravel pour gérer l'authentification des utilisateurs dans une application Laravel.
+
+Nous utiliserons laravel/ui pour installer le système d'authentification par défaut de Laravel dans notre application Laravel.
+
+## 2. Installation de laravel/ui
+
+Pour installer laravel/ui, vous devez exécuter la commande suivante dans le terminal :
+
+```bash
+composer require laravel/ui
+```
+
+## 3. Configuration de laravel/ui
+
+Après avoir installé laravel/ui, vous devez exécuter la commande suivante pour configurer laravel/ui :
+
+```bash
+// Generate basic scaffolding...
+php artisan ui bootstrap
+
+// Generate login / registration scaffolding...
+php artisan ui bootstrap --auth
+```
+
+La commande `php artisan ui bootstrap` génère le scaffolding de base pour votre application Laravel. Cela inclut les fichiers de configuration, les vues et les fichiers de ressources pour votre application.
+
+La commande `php artisan ui bootstrap --auth` génère le scaffolding de base pour votre application Laravel, ainsi que les vues et les contrôleurs nécessaires pour gérer l'authentification des utilisateurs.
+
+Après avoir exécuté la commande `php artisan ui bootstrap --auth`, vous devez exécuter la commande suivante pour installer les dépendances JavaScript nécessaires :
+
+```bash
+npm install && npm run dev
+```
+
+A la question `The [Controller.php] file already exists. Do you want to replace it? (yes/no) [yes]`, répondez `yes`.
+
+[:arrow_left:Revenir à la théorie.](../Theo/README.md)
+
+---
+_[Eqla](http://www.eqla.be) 2024 - Formation Laravel_
