@@ -506,6 +506,9 @@ Pour faire cette partie, n'oubliez pas que vous avez la théorie sur les [bases 
 - Créez une route 'products/list' qui appelera le contrôleur ProductController et sa méthode index().
 - Ce contrôleur, que vous allez créer, enverra en paramètre tous les produits à la vue nommée list.blade.php qui se trouvera dans le répertoire views/products.
 - Lors de l'envoie des paramètres à la vue, nommez la variable de destination 'products'.
+- Vous ajouterez 2 produits via tinker avec les données suivantes:
+    - name: 'Téléphone', price: 500, stock: 10
+    - name: 'Tablette', price: 800, stock: 5
 - Cette vue affichera, tous les attributs d'un produit.
 - Affichez un message s'il n'y a pas de produits.
 
