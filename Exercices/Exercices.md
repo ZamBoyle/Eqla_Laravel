@@ -521,6 +521,10 @@ A vous de trouver comment affecter $produits avec tous les produits de la DB. ;)
 ## Exercice n°4
 Ici nous allons créer des produits par défaut si ceux-ci n'existent pas. Ce n'est pas la meilleure méthode, c'est juste pour l'exercice que nous le feront de cette manière.
 
+- Supprimez toutes les données de la db via la commande 
+```bash
+php artisan migrate:fresh
+```
 - Créez une route 'products/initialize'.
 - Cette route appelera le contrôleur ProductController et sa méthode initialize().
 - Dans cette méthode vous ajouterez 2 produits en DB uniquement s'il n'y a pas de produits dans la table produits.
