@@ -524,7 +524,7 @@ Ici nous allons créer des produits par défaut si ceux-ci n'existent pas. Ce n'
 - Créez une route 'products/initialize'.
 - Cette route appelera le contrôleur ProductController et sa méthode initialize().
 - Dans cette méthode vous ajouterez 2 produits en DB uniquement s'il n'y a pas de produits dans la table produits.
-- Cette méthode initialize de votre controlleur appelera la vue 'initialize.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/initialize','exists'=>\$existe,'products'=>\$produits);  A vous de remplir \$existe et \$produits de la manière adéquate. ;) Gros indice soit vous utilisez Product::count() qui retourne le nombre de produits en DB, soit vous utilisez Product::exists() qui retourne un booléen si des produits existent en DB. Et et donc vous affectez \$existe et \$produits en conséquence.
+- Cette méthode initialize de votre controlleur appelera la vue 'initialize.blade.php' qui se trouve dans le répertoire views/products de cette manière: return view('products/initialize','exists'=>\$existe,'products'=>\$produits);  A vous de remplir \$existe et \$produits de la manière adéquate. ;) Gros indice soit vous utilisez `Product::count()` qui retourne le nombre de produits en DB, soit vous utilisez `Product::exists()` qui retourne un booléen si des produits existent en DB. Et et donc vous affectez \$existe et \$produits en conséquence.
 - Cette vue, affichera, grâce à $exists et $products, soit
   - Rien à faire, la table products n'est pas vide.
   - La table products a été initialisée avec des produits par défaut.
